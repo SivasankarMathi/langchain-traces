@@ -6,32 +6,55 @@
   <title>Login</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    :root {
+      --bg: linear-gradient(135deg, #667eea, #764ba2);
+      --card-bg: #fff;
+      --text: #333;
+      --label: #555;
+      --input-border: #ccc;
+      --input-bg: #fff;
+      --input-text: #333;
+      --accent: #667eea;
+    }
+    [data-theme="dark"] {
+      --bg: linear-gradient(135deg, #1a1a2e, #16213e);
+      --card-bg: #232336;
+      --text: #eaeaea;
+      --label: #b0b0c0;
+      --input-border: #44445c;
+      --input-bg: #2d2d44;
+      --input-text: #eaeaea;
+      --accent: #7a8df0;
+    }
     body {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: var(--bg);
+      transition: background 0.3s;
     }
     .card {
-      background: #fff;
+      background: var(--card-bg);
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
       width: 100%;
       max-width: 360px;
     }
-    h1 { text-align: center; margin-bottom: 1.5rem; color: #333; font-size: 1.5rem; }
+    h1 { text-align: center; margin-bottom: 1.5rem; color: var(--text); font-size: 1.5rem; }
     .field { margin-bottom: 1rem; }
-    label { display: block; margin-bottom: 0.4rem; color: #555; font-size: 0.9rem; }
+    label { display: block; margin-bottom: 0.4rem; color: var(--label); font-size: 0.9rem; }
     input {
       width: 100%;
       padding: 0.6rem;
-      border: 1px solid #ccc;
+      border: 1px solid var(--input-border);
       border-radius: 6px;
       font-size: 1rem;
+      background: var(--input-bg);
+      color: var(--input-text);
     }
-    input:focus { outline: none; border-color: #667eea; }
+    input:focus { outline: none; border-color: var(--accent); }
     button {
       width: 100%;
       padding: 0.7rem;
@@ -48,6 +71,7 @@
   </style>
 </head>
 <body>
+  <button type="button" class="theme-toggle" id="themeToggle">Dark Mode</button>
   <form class="card" id="loginForm" novalidate>
     <h1>Sign In</h1>
     <div class="field">
